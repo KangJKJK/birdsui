@@ -64,7 +64,10 @@ case $choice in
     read -p "프록시를 사용하시겠습니까? (y/n): " use_proxy
     
     if [[ "$use_proxy" == "y" || "$use_proxy" == "Y" ]]; then
-       
+
+        # 환경변수 설정
+        WORK="/root/BirdSUI-BOT"
+
         cd "$WORK"
         # 프록시 정보 입력 안내
         echo -e "${YELLOW}프록시 정보를 입력하세요. 입력형식: http://user:pass@ip:port${NC}"
@@ -83,6 +86,8 @@ case $choice in
         cd "$WORK"
         node birds-proxy.js
     else
+        # 환경변수 설정
+        WORK="/root/BirdSUI-BOT"
         cd "$WORK"
         node birds.js
     fi
@@ -93,17 +98,18 @@ case $choice in
     
     # 사용자에게 프록시 사용 여부를 물어봅니다.
     read -p "프록시를 사용하시겠습니까? (y/n): " use_proxy
-    if [[ "$use_proxy" == "y" || "$use_proxy" == "Y" ]]; then        
+    if [[ "$use_proxy" == "y" || "$use_proxy" == "Y" ]]; then 
+        # 환경변수 설정
+        WORK="/root/BirdSUI-BOT"
         # 봇 구동
         cd "$WORK"
         node birds-proxy.js
     else
+        # 환경변수 설정
+        WORK="/root/BirdSUI-BOT"
         cd "$WORK"
         node birds.js
     fi
-    ;;
-    cd "$WORK"
-    node main.js
     ;;
 
   *)
