@@ -46,6 +46,7 @@ case $choice in
     # 기존 작업 공간 확인 및 삭제, 새 작업 공간 생성 및 이동
     mkdir -p "$WORK"
     cd "$WORK"
+    git pull
 
     # Node.js LTS 버전 설치 및 사용
     echo -e "${YELLOW}Node.js LTS 버전을 설치하고 설정 중...${NC}"
