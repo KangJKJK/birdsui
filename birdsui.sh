@@ -52,6 +52,7 @@ case $choice in
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # nvm을 로드합니다
     nvm install --lts
     nvm use --lts
+    npm install
 
     echo -e "${GREEN}여러 개의 query_id를 입력할 경우 줄바꿈으로 구분하세요.${NC}"
     echo -e "${GREEN}입력을 마치려면 엔터를 두 번 누르세요.${NC}"
