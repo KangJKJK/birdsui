@@ -9,7 +9,7 @@ NC='\033[0m' # 색상 초기화
 
 echo -e "${GREEN}Birdsui 봇을 설치합니다.${NC}"
 echo -e "${GREEN}스크립트작성자: https://t.me/kjkresearch${NC}"
-echo -e "${GREEN}출처: https://github.com/Galkurta/BirdSUI-BOT${NC}"
+echo -e "${GREEN}출처: https://github.com/Bachtran301/Birds-Sui${NC}"
 
 echo -e "${CYAN}이 봇은 다음과 같은 기능을 갖고 있습니다.{NC}"
 echo -e "${CYAN}웜캐칭 / 에그업그레이드/ 에그크래킹 / 각종 태스크{NC}"
@@ -25,13 +25,13 @@ case $choice in
 
     #필요한 패키지 설치
     echo -e "${YELLOW}시스템 업데이트 및 필수 패키지 설치 중...${NC}"
-    rm -rf /root/BirdSUI-BOT
+    rm -rf /root/Birds-Sui
     sudo apt update
     sudo apt install -y git
 
     # GitHub에서 코드 복사
     echo -e "${YELLOW}GitHub에서 코드 복사 중...${NC}"
-    git clone https://github.com/Galkurta/BirdSUI-BOT.git
+    git clone https://github.com/Bachtran301/Birds-Sui.git
 
     # 환경변수 설정
     WORK="/root/BirdSUI-BOT"
