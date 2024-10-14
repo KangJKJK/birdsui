@@ -32,17 +32,18 @@ case $choice in
     rm -rf /root/Birds-Sui
     sudo apt update
     sudo apt install -y git
+
+    echo -e "${YELLOW}작업 공간 준비 중...${NC}"
+    if [ -d "$WORK" ]; then
+        echo -e "${YELLOW}기존 작업 공간 삭제 중...${NC}"
+        rm -rf "$WORK"
+    fi
     
     # GitHub에서 코드 복사
     echo -e "${YELLOW}GitHub에서 코드 복사 중...${NC}"
     git clone https://github.com/Bachtran301/Birds-Sui.git
 
     # 기존 작업 공간 확인 및 삭제, 새 작업 공간 생성 및 이동
-    echo -e "${YELLOW}작업 공간 준비 중...${NC}"
-    if [ -d "$WORK" ]; then
-        echo -e "${YELLOW}기존 작업 공간 삭제 중...${NC}"
-        rm -rf "$WORK"
-    fi
     mkdir -p "$WORK"
     cd "$WORK"
 
