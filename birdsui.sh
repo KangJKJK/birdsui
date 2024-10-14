@@ -59,13 +59,49 @@ case $choice in
             echo "$line"
         done
     } > "$WORK"/data.txt
-    
-    # 봇 구동
-    node main.js
-    ;;
 
+    # 사용자에게 프록시 사용 여부를 물어봅니다.
+    read -p "프록시를 사용하시겠습니까? (y/n): " use_proxy
+    
+    if [[ "$use_proxy" == "y" || "$use_proxy" == "Y" ]]; then
+       
+        cd "$WORK"
+        # 프록시 정보 입력 안내
+        echo -e "${YELLOW}프록시 정보를 입력하세요. 입력형식: http://user:pass@ip:port${NC}"
+        echo -e "${YELLOW}여러 개의 프록시는 줄바꿈으로 구분하세요.${NC}"
+        echo -e "${YELLOW}입력을 마치려면 엔터를 두 번 누르세요.${NC}"
+
+        # proxy.txt 파일 생성 및 초기화
+        {
+            while IFS= read -r line; do
+                [[ -z "$line" ]] && break
+                echo "$line"
+            done
+        } > "$WORK"/proxy.txt
+        
+        # 봇 구동
+        cd "$WORK"
+        node birds-proxy.js
+    else
+        cd "$WORK"
+        node birds.js
+    fi
+    ;;
+    
   2)
     echo -e "${GREEN}Bird 봇을 재실행합니다.${NC}"
+    
+    # 사용자에게 프록시 사용 여부를 물어봅니다.
+    read -p "프록시를 사용하시겠습니까? (y/n): " use_proxy
+    if [[ "$use_proxy" == "y" || "$use_proxy" == "Y" ]]; then        
+        # 봇 구동
+        cd "$WORK"
+        node birds-proxy.js
+    else
+        cd "$WORK"
+        node birds.js
+    fi
+    ;;
     cd "$WORK"
     node main.js
     ;;
