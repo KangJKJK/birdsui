@@ -46,7 +46,6 @@ case $choice in
     # 기존 작업 공간 확인 및 삭제, 새 작업 공간 생성 및 이동
     mkdir -p "$WORK"
     cd "$WORK"
-    git pull
 
     # Node.js LTS 버전 설치 및 사용
     echo -e "${YELLOW}Node.js LTS 버전을 설치하고 설정 중...${NC}"
@@ -86,8 +85,10 @@ case $choice in
         } > "$WORK/proxy.txt"
         
         # 봇 구동
+        git pull
         node birds-proxy.js
     else
+        git pull
         node birds.js
     fi
     ;;
@@ -98,9 +99,11 @@ case $choice in
     # 사용자에게 프록시 사용 여부를 물어봅니다.
     read -p "프록시를 사용하시겠습니까? (y/n): " use_proxy
     cd "$WORK"
-    if [[ "$use_proxy" == "y" || "$use_proxy" == "Y" ]]; then 
+    if [[ "$use_proxy" == "y" || "$use_proxy" == "Y" ]]; then
+        git pull
         node birds-proxy.js
     else
+        git pull
         node birds.js
     fi
     ;;
