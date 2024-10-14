@@ -85,10 +85,8 @@ case $choice in
         } > "$WORK/proxy.txt"
         
         # 봇 구동
-        git pull
         node birds-proxy.js
     else
-        git pull
         node birds.js
     fi
     ;;
@@ -99,11 +97,10 @@ case $choice in
     # 사용자에게 프록시 사용 여부를 물어봅니다.
     read -p "프록시를 사용하시겠습니까? (y/n): " use_proxy
     cd "$WORK"
+    git pull
     if [[ "$use_proxy" == "y" || "$use_proxy" == "Y" ]]; then
-        git pull
         node birds-proxy.js
     else
-        git pull
         node birds.js
     fi
     ;;
